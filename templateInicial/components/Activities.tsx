@@ -8,9 +8,9 @@ export default function Activities() {
         <View>
             <Text>ACTIVITIES</Text>
 
-            <ActivitiesCard titulo="Karate" />
-            <ActivitiesCard titulo="Yoga" />
-            <ActivitiesCard titulo="bharatnatyam" />       
+            <ActivityCard titulo="Karate" />
+            <ActivityCard titulo="Yoga" />
+            <ActivityCard titulo="bharatnatyam" />       
         </View>
     );
 }
