@@ -7,7 +7,7 @@ export default function MenuGrid(props) {
       flexDirection: "row",
       flexWrap: "wrap",
       justifyContent: "space-between",
-      padding: 10
+      padding: 20
     }}>
       
       {props.itens.map((item, index) => (

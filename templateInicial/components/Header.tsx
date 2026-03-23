@@ -1,4 +1,3 @@
-import { Background } from "@react-navigation/elements";
 import { Text, View, Image } from "react-native";
 
 export default function Header(props) {
@@ -9,10 +8,23 @@ export default function Header(props) {
     <View
       style={{
         backgroundColor: "#07183b",
-        paddingVertical: 25,
+        paddingTop: 10,
+        paddingBottom: 15,
         paddingHorizontal: 15,
       }}
     >
+      {/* ÍCONE ESQUERDO */}
+    <Image
+      source={require("../assets/icons/menu.png")}
+      style={{
+        width: 20,
+        height: 20,
+        position: "absolute",
+        left: 0,
+        top: 5
+      }}
+    />
+
       <Text
         style={{
           color: "#fff",

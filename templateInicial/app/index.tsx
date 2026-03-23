@@ -2,8 +2,7 @@ import { icons } from "@/assets/icons";
 import Activities from "@/components/Activities";
 import Header from "@/components/Header";
 import MenuGrid from "@/components/MenuGrid";
-import { Text, View } from "react-native";
-import { Stack } from "expo-router";
+import { View } from "react-native";
 
 export const options = {
   headerShown: false,

@@ -9,4 +9,5 @@ export const icons = {
   yoga: require("../assets/icons/yoga.png"),
   bharath: require("../assets/icons/bharath.png"),
   music: require("../assets/icons/music.png"),
+  menu: require("../assets/icons/menu.png"),
 };

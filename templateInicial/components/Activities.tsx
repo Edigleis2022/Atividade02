@@ -26,13 +26,13 @@ export default function Activities(props) {
         {/* BOTÃO */}
         <Pressable
           style={{
-            backgroundColor: "#eee",
+            backgroundColor: "#11e956",
             paddingHorizontal: 10,
             paddingVertical: 4,
             borderRadius: 10,
           }}
         >
-          <Text style={{ fontSize: 10 }}>SEE ALL</Text>
+          <Text style={{ fontSize: 10 }}>ACESSE</Text>
         </Pressable>
       </View>
 
