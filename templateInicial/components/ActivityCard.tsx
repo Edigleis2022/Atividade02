@@ -2,19 +2,25 @@ import { View, Text, Image } from "react-native";
 
 export default function ActivityCard(props) {
   return (
-    <View style={{
-      backgroundColor: "#f0f0f0",
-      padding: 10,
-      alignItems: "center",
-      borderRadius: 10,
-      width: 80
-    }}>
+   <View style={{
+  backgroundColor: "#f0f0f0", // cor de fundo do card
+  padding: 10,                // espaço interno
+  alignItems: "center",       // centraliza conteúdo (ícone + texto)
+  borderRadius: 10,           // deixa bordas arredondadas
+  width: 80                   // largura fixa do card
+}}>
 
-      <Image source={props.icon} style={{ width: 40, height: 40 }} />
+  {/* ÍCONE VINDO POR PROPS */}
+  <Image 
+    source={props.icon}       // recebe a imagem do componente pai
+    style={{ width: 40, height: 40 }} 
+  />
 
-      <Text>
-        {props.titulo}
-    </Text>
-    </View>
+  {/* TEXTO VINDO POR PROPS */}
+  <Text>
+    {props.titulo}            // recebe o título do componente pai
+  </Text>
+
+</View>
   );
 }
