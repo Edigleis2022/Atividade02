@@ -1,14 +1,20 @@
-import { View, Image, Text } from "react-native";
-
+import { View, Text, Image } from "react-native";
 
 export default function ActivityCard(props) {
+  return (
+    <View style={{
+      backgroundColor: "#f0f0f0",
+      padding: 10,
+      alignItems: "center",
+      borderRadius: 10,
+      width: 80
+    }}>
 
-    const {titulo, icon } = props;
+      <Image source={props.icon} style={{ width: 40, height: 40 }} />
 
-    return(
-        <View>Introduce new features
-            <Image source={icon}/>
-            <Text>{titulo}</Text>                   
-        </View>
-    );
+      <Text>
+        {props.titulo}
+    </Text>
+    </View>
+  );
 }

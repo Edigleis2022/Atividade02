@@ -1,16 +1,23 @@
 import { View } from "react-native";
 import MenuItem from "./MenuItem";
 
-export default function MenuGrid(){
+export default function MenuGrid(props) {
+  return (
+    <View style={{
+      flexDirection: "row",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      padding: 10
+    }}>
+      
+      {props.itens.map((item, index) => (
+        <MenuItem
+          key={index}
+          titulo={item.titulo}
+          icon={item.icon}
+        />
+      ))}
 
-    return (
-        <View>
-            <MenuItem titulo="Attendance" />
-            <MenuItem titulo="Messages" />
-            <MenuItem titulo="Profile" />
-            <MenuItem titulo="Marks" />
-            <MenuItem titulo="Homework" />
-            <MenuItem titulo="Track" />
-        </View>    
-    );
+    </View>
+  );
 }
