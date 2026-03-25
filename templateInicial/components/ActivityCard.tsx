@@ -18,7 +18,7 @@ export default function ActivityCard(props) {
 
   {/* TEXTO VINDO POR PROPS */}
   <Text>
-    {props.titulo}            // recebe o título do componente pai
+    {props.titulo}        {/*recebe o título do componente pai*/}
   </Text>
 
 </View>

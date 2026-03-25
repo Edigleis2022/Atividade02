@@ -22,7 +22,7 @@ export default function MenuItem(props) {
 
     {/* TEXTO DO MENU */}
     <Text style={{ marginTop: 5, fontSize: 12 }}>
-      {props.titulo}              // título recebido via props
+      {props.titulo}              {/* título recebido via props */}
     </Text>
 
   </View>
