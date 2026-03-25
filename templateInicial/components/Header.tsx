@@ -61,11 +61,11 @@ export default function Header(props) {
     <View style={{ marginLeft: 10 }}>
       
       <Text style={{ color: "#fff" }}>
-        {props.nome}        // nome vindo por props
+        {props.nome}        {/*nome vindo por props*/}
       </Text>
 
       <Text style={{ color: "#fff" }}>
-        {props.turma}       // turma vindo por props
+        {props.turma}       {/*turma vindo por props*/}
       </Text>
 
     </View>
