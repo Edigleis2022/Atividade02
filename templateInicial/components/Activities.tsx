@@ -1,73 +1,56 @@
-import { View, Text, Pressable, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import ActivityCard from "./ActivityCard";
 
+// Componente recebe uma LISTA via props
 export default function Activities(props) {
   return (
-    <View style={{ padding: 10 }}> {/* Espaçamento externo da seção */}
 
-  {/* LINHA SUPERIOR: TÍTULO + BOTÃO */}
-  <View
-    style={{
-      flexDirection: "row",            // coloca elementos na horizontal
-      justifyContent: "space-between", // separa título (esq) e botão (dir)
-      alignItems: "center",            // alinha tudo verticalmente
-    }}
-  >
+    // 🔹 Container principal
+    <View style={styles.container}>
 
-    {/* BLOCO DO TÍTULO (ÍCONE + TEXTO) */}
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      
-      {/* ÍCONE FIXO */}
-      <Image
-        source={require("../assets/icons/music.png")} // imagem local
-        style={{ width: 16, height: 16, marginRight: 5 }} // tamanho + espaço do texto
-      />
-
-      {/* TEXTO DO TÍTULO */}
-      <Text style={{ fontWeight: "bold" }}>
-        ACTIVITIES
+      {/* 🔹 Título da seção */}
+      <Text style={styles.title}>
+        Recent Activities
       </Text>
+
+      {/* 🔹 Lista de cards */}
+      <View style={styles.list}>
+
+        {props.lista.map((item, index) => (
+          <ActivityCard
+            key={index}
+            icon={item.icon}
+            titulo={item.titulo}
+          />
+        ))}
+
+      </View>
 
     </View>
-
-    {/* BOTÃO DE AÇÃO */}
-    <Pressable
-      style={{
-        backgroundColor: "#11e956", // cor do botão
-        paddingHorizontal: 10,      // espaço lateral
-        paddingVertical: 4,         // espaço vertical
-        borderRadius: 10,           // borda arredondada
-      }}
-    >
-      <Text style={{ fontSize: 10 }}>
-        ACESSE
-      </Text>
-    </Pressable>
-
-  </View>
-
-  {/* LISTA DE CARDS DE ATIVIDADES */}
-  <View
-    style={{
-      flexDirection: "row",          // cards lado a lado
-      justifyContent: "space-around",// espaço igual entre eles
-      marginTop: 10,                 // distância do título
-    }}
-  >
-
-    {/* PERCORRE O ARRAY DE ATIVIDADES */}
-    {props.atividades.map((item, index) => (
-
-      <ActivityCard
-        key={index}                 // chave única (React precisa)
-        titulo={item.titulo}        // passa o título via props
-        icon={item.icon}            // passa o ícone via props
-      />
-
-    ))}
-
-  </View>
-
-</View>
   );
 }
+
+// 🔹 Estilos
+const styles = StyleSheet.create({
+
+  // Container geral da seção
+  container: {
+    marginHorizontal: 15, // alinha com o resto da tela
+    marginTop: 10
+  },
+
+  // Título da seção
+  title: {
+    color: "#fff", // texto branco (tema dark)
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 10
+  },
+
+  // Área onde ficam os cards
+  list: {
+    flexDirection: "row", // coloca lado a lado
+    justifyContent: "space-between" // distribui bem
+  }
+
+});

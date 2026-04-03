@@ -1,26 +1,36 @@
-import { View } from "react-native";
-import MenuItem from "./MenuItem";
+import { View, StyleSheet } from "react-native";
+import ActivityCard from "./ActivityCard";
 
+// Componente recebe uma LISTA via props
 export default function MenuGrid(props) {
   return (
-    <View style={{
-  flexDirection: "row",        // coloca os itens na horizontal
-  flexWrap: "wrap",            // permite quebrar linha (ir para baixo)
-  justifyContent: "space-between", // distribui espaço entre os itens
-  padding: 20                  // espaço interno do container
-}}>
 
-  {/* PERCORRE A LISTA DE ITENS */}
-  {props.itens.map((item, index) => (
+    // 🔹 Container que segura todos os cards
+    <View style={styles.container}>
 
-    <MenuItem
-      key={index}            // chave única para cada item (React precisa)
-      titulo={item.titulo}   // passa o título via props
-      icon={item.icon}       // passa o ícone via props
-    />
+      {/* 🔹 Percorre a lista e cria um card para cada item */}
+      {props.itens.map((item, index) => (
+        <ActivityCard
+          key={index} // chave obrigatória no map
+          icon={item.icon} // imagem
+          titulo={item.titulo} // texto
+        />
+      ))}
 
-  ))}
-
-</View>
+    </View>
   );
 }
+
+// 🔹 Estilos
+const styles = StyleSheet.create({
+
+  container: {
+    flexDirection: "row", // coloca os itens lado a lado
+    justifyContent: "space-between", // distribui melhor (mais fiel ao layout)
+    
+    marginHorizontal: 15, // espaço nas laterais (igual imagem)
+    marginVertical: 10, // espaço em cima/baixo
+    
+  }
+
+});

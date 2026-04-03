@@ -1,26 +1,60 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
+// Componente recebe dados via props (icon + titulo)
 export default function ActivityCard(props) {
   return (
-   <View style={{
-  backgroundColor: "#f0f0f0", // cor de fundo do card
-  padding: 10,                // espaço interno
-  alignItems: "center",       // centraliza conteúdo (ícone + texto)
-  borderRadius: 10,           // deixa bordas arredondadas
-  width: 80                   // largura fixa do card
-}}>
 
-  {/* ÍCONE VINDO POR PROPS */}
-  <Image 
-    source={props.icon}       // recebe a imagem do componente pai
-    style={{ width: 40, height: 40 }} 
-  />
+    // 🔹 Container do card
+    <View style={styles.card}>
 
-  {/* TEXTO VINDO POR PROPS */}
-  <Text>
-    {props.titulo}            // recebe o título do componente pai
-  </Text>
+      {/* 🔹 Ícone do card */}
+      <Image 
+        source={props.icon} 
+        style={styles.icon} 
+      />
 
-</View>
+      {/* 🔹 Texto do card */}
+      <Text style={styles.text}>
+        {props.titulo}
+      </Text>
+
+    </View>
   );
 }
+
+// 🔹 Estilos
+const styles = StyleSheet.create({
+
+  // 🔥 Card principal
+  card: {
+    backgroundColor: "#1E1E1E", // cor escura (tema Free Fire)
+    
+    padding: 12, // espaço interno
+    
+    alignItems: "center", // centraliza conteúdo
+    
+    borderRadius: 15, // borda arredondada
+    
+    width: 80, // largura fixa
+    
+    borderWidth: 1, // borda
+    borderColor: "#333", // cor da borda
+    
+    marginBottom: 10 // espaço entre elementos
+  },
+
+  // 🔹 Ícone
+  icon: {
+    width: 40,
+    height: 40,
+    marginBottom: 5 // espaço entre ícone e texto
+  },
+
+  // 🔹 Texto
+  text: {
+    color: "#fff", // texto branco (tema dark)
+    fontSize: 12,
+    textAlign: "center"
+  }
+
+});
