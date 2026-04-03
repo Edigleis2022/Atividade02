@@ -7,6 +7,7 @@ export default function Header(props) {
     // 🔹 Container principal do Header
     <View style={styles.container}>
 
+<<<<<<< HEAD
       {/* 🔹 Título principal */}
       <Text style={styles.title}>
         {props.nome} {/* Ex: Hello Survivor! */}
@@ -15,6 +16,48 @@ export default function Header(props) {
       {/* 🔹 Subtítulo */}
       <Text style={styles.subtitle}>
         {props.saudacao} {/* Ex: Ready for battle */}
+=======
+  {/* TÍTULO CENTRAL */}
+  <Text
+    style={{
+      color: "#fff",        // cor branca
+      fontSize: 18,         // tamanho da fonte
+      textAlign: "center",  // centraliza o texto
+      fontWeight: "bold",   // deixa em negrito
+    }}
+  >
+    HOME
+  </Text>
+
+  {/* BLOCO DO PERFIL (IMAGEM + DADOS) */}
+  <View
+    style={{
+      flexDirection: "row", // coloca imagem e texto lado a lado
+      alignItems: "center", // alinha verticalmente
+      marginTop: 15,        // espaço abaixo do título
+    }}
+  >
+
+    {/* IMAGEM DO USUÁRIO */}
+    <Image
+      source={props.imagem} // imagem recebida por props
+      style={{
+        width: 50,
+        height: 50,
+        borderRadius: 25    // deixa a imagem redonda
+      }}
+    />
+
+    {/* DADOS DO USUÁRIO */}
+    <View style={{ marginLeft: 10 }}>
+      
+      <Text style={{ color: "#fff" }}>
+        {props.nome}        {/*nome vindo por props*/}
+      </Text>
+
+      <Text style={{ color: "#fff" }}>
+        {props.turma}       {/*turma vindo por props*/}
+>>>>>>> e24901fca1be18cbd6041a1047028c7b30fb7cb7
       </Text>
 
       {/* 🔹 Campo de busca */}

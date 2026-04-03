@@ -7,11 +7,18 @@ export default function ActivityCard(props) {
     // 🔹 Container do card
     <View style={styles.card}>
 
+<<<<<<< HEAD
       {/* 🔹 Ícone do card */}
       <Image 
         source={props.icon} 
         style={styles.icon} 
       />
+=======
+  {/* TEXTO VINDO POR PROPS */}
+  <Text>
+    {props.titulo}        {/*recebe o título do componente pai*/}
+  </Text>
+>>>>>>> e24901fca1be18cbd6041a1047028c7b30fb7cb7
 
       {/* 🔹 Texto do card */}
       <Text style={styles.text}>
