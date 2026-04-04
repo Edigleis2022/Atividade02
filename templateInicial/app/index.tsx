@@ -1,5 +1,5 @@
 // Importa componentes básicos do React Native
-import { View, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, ImageBackground, View } from "react-native";
 
 // Importa seus componentes personalizados
 import Header from "../components/Header";
@@ -7,71 +7,82 @@ import MenuGrid from "../components/MenuGrid";
 import Banner from "../components/Banner";
 import Activities from "../components/Activities";
 import Footer from "../components/Footer";
+import { icons } from "@/assets/icons";
 
 // Componente principal da tela
 export default function Home() {
-
   // 🔹 ARRAY do menu (cards de opções)
   // Cada objeto representa UM card
   const menu = [
-    { icon: require("../assets/icons/karate.png"), titulo: "Weapon" },
-    { icon: require("../assets/icons/menu.png"), titulo: "Mission" },
-    { icon: require("../assets/icons/music.png"), titulo: "Vehicle" },
-    { icon: require("../assets/icons/user.png"), titulo: "Character" }
+    { icon: icons.gun, tituulo: "Waepons" },
+    { icon: icons.target, tituulo: "Mission" },
+    { icon: icons.car, tituulo: "Vehicles" },
+    { icon: icons.player, tituulo: "Character" },
   ];
 
   // 🔹 ARRAY da lista de atividades (parte de baixo)
   const lista = [
-    { icon: require("../assets/icons/profile.png"), titulo: "Battle Royale Match" },
-    { icon: require("../assets/icons/profile.png"), titulo: "Squad Mission" }
-  ];
+  {
+    icon: require("../assets/activities/FF_Clu_character.png"),
+    titulo: "Battle Royale Match",
+  },
+  {
+    icon: require("../assets/activities/FF_Iris_character.png"),
+    titulo: "Squad Mission",
+  },
+];
 
   // 🔹 RETURN = o que aparece na tela
   return (
-
     // View principal (container da tela inteira)
-    <View style={styles.container}>
+    <ImageBackground
+      source={require("../assets/background/background.png")}
+      style={styles.container}
+    >
+      <View style={styles.overlay}>
 
-      {/* ScrollView permite rolar a tela */}
-      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* ScrollView permite rolar a tela */}
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {/* 🔹 HEADER */}
+          {/* Recebe dados via props */}
+          <Header
+            nome="Hello Survivor!"
+            saudacao="Ready for battle 🔥"
+            placeholder="Search weapons..."
+          />
 
-        {/* 🔹 HEADER */}
-        {/* Recebe dados via props */}
-        <Header
-          nome="Hello Survivor!"
-          saudacao="Ready for battle 🔥"
-          placeholder="Search weapons..."
-        />
+          {/* 🔹 MENU (cards) */}
+          {/* Envia o array "menu" para o componente */}
+          <MenuGrid itens={menu} />
 
-        {/* 🔹 MENU (cards) */}
-        {/* Envia o array "menu" para o componente */}
-        <MenuGrid itens={menu} />
+          {/* 🔹 BANNER */}
+          <Banner
+            titulo="Get rewards now!"
+            descricao="Complete missions and earn diamonds 💎"
+          />
 
-        {/* 🔹 BANNER */}
-        <Banner
-          titulo="Get rewards now!"
-          descricao="Complete missions and earn diamonds 💎"
-        />
+          {/* 🔹 LISTA DE ATIVIDADES */}
+          <Activities lista={lista} />
+        </ScrollView>
 
-        {/* 🔹 LISTA DE ATIVIDADES */}
-        <Activities lista={lista} />
+        {/* 🔹 FOOTER (fixo embaixo) */}
+        <Footer itens={["Home", "Play", "Store", "Profile"]} />
+        
+      </View>
 
-      </ScrollView>
-
-      {/* 🔹 FOOTER (fixo embaixo) */}
-      <Footer itens={["Home", "Play", "Store", "Profile"]} />
-
-    </View>
+    </ImageBackground>
   );
 }
 
 // 🔹 Estilos da tela
 const styles = StyleSheet.create({
-
   // Container principal
   container: {
     flex: 1, // ocupa a tela inteira
-    backgroundColor: "#121212" // cor de fundo (tema Free Fire)
-  }
+  },
 
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.6)", // camada escura para melhor contraste
+  }
 });
