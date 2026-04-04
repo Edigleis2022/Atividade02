@@ -1,7 +1,7 @@
 // CENTRALIZADOR DE IMAGENS
 
 export const icons = {
-  gun: require('..assets/icons/gun.png'),
+  gun: require('../assets/icons/gun.png'),
   target: require('../assets/icons/target.png'),
   car: require('../assets/icons/car.png'),
   player: require('../assets/icons/player.png'),

@@ -1,21 +1,28 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import ActivityCard from "./ActivityCard";
 
 // Componente recebe uma LISTA via props
 export default function MenuGrid(props) {
   return (
 
-    // 🔹 Container que segura todos os cards
+    // 🔹 Container principal (agora em coluna)
     <View style={styles.container}>
 
-      {/* 🔹 Percorre a lista e cria um card para cada item */}
-      {props.itens.map((item, index) => (
-        <ActivityCard
-          key={index} // chave obrigatória no map
-          icon={item.icon} // imagem
-          titulo={item.titulo} // texto
-        />
-      ))}
+      {/* 🔹 PERGUNTA */}
+      <Text style={styles.title}>
+        What do you want to do?
+      </Text>
+
+      {/* 🔹 LINHA DE ÍCONES */}
+      <View style={styles.row}>
+        {props.itens.map((item, index) => (
+          <ActivityCard
+            key={index}
+            icon={item.icon}
+            titulo={item.titulo}
+          />
+        ))}
+      </View>
 
     </View>
   );
@@ -24,13 +31,26 @@ export default function MenuGrid(props) {
 // 🔹 Estilos
 const styles = StyleSheet.create({
 
+  // 🔹 Container geral (agora em coluna)
   container: {
-    flexDirection: "row", // coloca os itens lado a lado
-    justifyContent: "space-between", // distribui melhor (mais fiel ao layout)
-    
-    marginHorizontal: 15, // espaço nas laterais (igual imagem)
-    marginVertical: 10, // espaço em cima/baixo
-    
+    marginHorizontal: 10,
+    marginVertical: 10
+  },
+
+  // 🔹 Título (pergunta)
+  title: {
+    color: "#fff", // branco
+    fontSize: 16, // tamanho médio
+    fontWeight: "bold", // negrito
+
+    marginBottom: 10, // espaço entre título e ícones
+    marginLeft: 5 // leve alinhamento
+  },
+
+  // 🔹 Linha de ícones
+  row: {
+    flexDirection: "row", // ícones lado a lado
+    justifyContent: "space-between"
   }
 
 });

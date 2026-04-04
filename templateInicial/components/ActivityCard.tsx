@@ -7,20 +7,13 @@ export default function ActivityCard(props) {
     // 🔹 Container do card
     <View style={styles.card}>
 
-<<<<<<< HEAD
-      {/* 🔹 Ícone do card */}
+      {/* 🔹 ÍCONE */}
       <Image 
-        source={props.icon} 
-        style={styles.icon} 
+        source={props.icon}
+        style={styles.icon}
       />
-=======
-  {/* TEXTO VINDO POR PROPS */}
-  <Text>
-    {props.titulo}        {/*recebe o título do componente pai*/}
-  </Text>
->>>>>>> e24901fca1be18cbd6041a1047028c7b30fb7cb7
 
-      {/* 🔹 Texto do card */}
+      {/* 🔹 TÍTULO ABAIXO DO ÍCONE */}
       <Text style={styles.text}>
         {props.titulo}
       </Text>
@@ -32,36 +25,36 @@ export default function ActivityCard(props) {
 // 🔹 Estilos
 const styles = StyleSheet.create({
 
-  // 🔥 Card principal
+  // 🔥 CARD (RESOLVE O PROBLEMA VISUAL)
   card: {
-    backgroundColor: "#1E1E1E", // cor escura (tema Free Fire)
-    
-    padding: 12, // espaço interno
-    
-    alignItems: "center", // centraliza conteúdo
-    
-    borderRadius: 15, // borda arredondada
-    
-    width: 80, // largura fixa
-    
-    borderWidth: 1, // borda
-    borderColor: "#333", // cor da borda
-    
-    marginBottom: 10 // espaço entre elementos
+    backgroundColor: "rgba(0,0,0,0.6)", // 🔥 escurece fundo
+
+    padding: 10,
+    alignItems: "center",
+
+    borderRadius: 12,
+
+    width: 80,
+
+    marginHorizontal: 5 // espaço entre os ícones
   },
 
   // 🔹 Ícone
   icon: {
-    width: 40,
-    height: 40,
-    marginBottom: 5 // espaço entre ícone e texto
+    width: 35,
+    height: 35,
+
+    marginBottom: 6
   },
 
   // 🔹 Texto
   text: {
-    color: "#fff", // texto branco (tema dark)
+    color: "#fff", // branco forte
+
     fontSize: 12,
-    textAlign: "center"
+    textAlign: "center",
+
+    fontWeight: "bold" // 🔥 melhora leitura
   }
 
 });

@@ -26,15 +26,16 @@ const styles = StyleSheet.create({
 
   // 🔥 Caixa principal (banner)
   container: {
-    backgroundColor: "#FF6F00", // 🔥 laranja mais forte (estilo Free Fire)
+  backgroundColor: "rgba(0,0,0,0.6)", // 🔥 MAIS ESCURO
 
-    padding: 20, // espaço interno
+  padding: 20,
+  borderRadius: 15,
 
-    borderRadius: 20, // bordas mais arredondadas (igual app moderno)
+  marginHorizontal: 15,
+  marginTop: 15,
 
-    marginHorizontal: 15, // espaço lateral (igual layout)
-    marginVertical: 10 // espaço vertical
-  },
+  elevation: 5 // 🔥 ANDROID (dá destaque)
+},
 
   // 🔹 Título
   title: {

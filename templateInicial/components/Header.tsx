@@ -1,106 +1,119 @@
-import { View, Text, TextInput, StyleSheet } from "react-native";
+import { View, Text, TextInput, StyleSheet, Image, ActivityIndicator } from "react-native";
+import { useState } from "react";
 
-// Componente Header recebe dados via props
 export default function Header(props) {
-  return (
 
-    // 🔹 Container principal do Header
+  // 🔹 Estado do texto digitado
+  const [texto, setTexto] = useState("");
+
+  // 🔹 Estado de carregamento
+  const [loading, setLoading] = useState(false);
+
+  // 🔹 Função chamada quando o usuário digita
+  function handleChange(value) {
+    setTexto(value); // salva o texto
+
+    setLoading(true); // 🔥 ativa o loading
+
+    // 🔥 simula uma busca (1 segundo)
+    setTimeout(() => {
+      setLoading(false); // desliga o loading
+    }, 1000);
+  }
+
+  return (
     <View style={styles.container}>
 
-<<<<<<< HEAD
-      {/* 🔹 Título principal */}
+      {/* 🔹 Título */}
       <Text style={styles.title}>
-        {props.nome} {/* Ex: Hello Survivor! */}
+        {props.nome}
       </Text>
 
       {/* 🔹 Subtítulo */}
       <Text style={styles.subtitle}>
-        {props.saudacao} {/* Ex: Ready for battle */}
-=======
-  {/* TÍTULO CENTRAL */}
-  <Text
-    style={{
-      color: "#fff",        // cor branca
-      fontSize: 18,         // tamanho da fonte
-      textAlign: "center",  // centraliza o texto
-      fontWeight: "bold",   // deixa em negrito
-    }}
-  >
-    HOME
-  </Text>
-
-  {/* BLOCO DO PERFIL (IMAGEM + DADOS) */}
-  <View
-    style={{
-      flexDirection: "row", // coloca imagem e texto lado a lado
-      alignItems: "center", // alinha verticalmente
-      marginTop: 15,        // espaço abaixo do título
-    }}
-  >
-
-    {/* IMAGEM DO USUÁRIO */}
-    <Image
-      source={props.imagem} // imagem recebida por props
-      style={{
-        width: 50,
-        height: 50,
-        borderRadius: 25    // deixa a imagem redonda
-      }}
-    />
-
-    {/* DADOS DO USUÁRIO */}
-    <View style={{ marginLeft: 10 }}>
-      
-      <Text style={{ color: "#fff" }}>
-        {props.nome}        {/*nome vindo por props*/}
+        {props.saudacao}
       </Text>
 
-      <Text style={{ color: "#fff" }}>
-        {props.turma}       {/*turma vindo por props*/}
->>>>>>> e24901fca1be18cbd6041a1047028c7b30fb7cb7
-      </Text>
+      {/* 🔹 Perfil */}
+      <View style={styles.profileContainer}>
 
-      {/* 🔹 Campo de busca */}
+        <Image
+          source={props.imagem}
+          style={styles.image}
+        />
+
+      </View>
+
+      {/* 🔹 Input */}
       <TextInput
-        placeholder={props.placeholder} // texto dentro do input
-        placeholderTextColor="#999" // cor do placeholder
+        placeholder={props.placeholder}
+        placeholderTextColor="#999"
         style={styles.input}
+
+        value={texto} // 🔥 controla o valor
+        onChangeText={handleChange} // 🔥 ativa função ao digitar
       />
+
+      {/* 🔹 LOADING (só aparece quando loading = true) */}
+      {loading && (
+        <ActivityIndicator
+          size="small"
+          color="#FF6F00" // 🔥 cor estilo Free Fire
+          style={{ marginTop: 10 }}
+        />
+      )}
 
     </View>
   );
 }
 
-// 🔹 Estilos do componente
 const styles = StyleSheet.create({
-
-  // Container geral
   container: {
     padding: 20,
-    backgroundColor: "#121212" // 🔥 fundo escuro (tema Free Fire)
+    backgroundColor: "transparent"
   },
 
-  // Texto principal (Hello Survivor)
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#fff" // texto branco (tema dark)
+    color: "#fff"
   },
 
-  // Subtítulo (Ready for battle)
   subtitle: {
-    color: "#aaa", // cinza claro
+    color: "#aaa",
+    marginBottom: 10
+  },
+
+  centerTitle: {
+    color: "#fff",
+    fontSize: 18,
+    textAlign: "center",
+    fontWeight: "bold",
+    marginVertical: 10
+  },
+
+  profileContainer: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 15
   },
 
-  // Campo de input
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
+
+  text: {
+    color: "#fff"
+  },
+
   input: {
-    backgroundColor: "#1E1E1E", // cor escura
+    backgroundColor: "#1E1E1E",
     padding: 12,
     borderRadius: 12,
-    color: "#fff", // texto digitado branco
+    color: "#fff",
     borderWidth: 1,
-    borderColor: "#333" // borda leve
+    borderColor: "#333"
   }
-
 });

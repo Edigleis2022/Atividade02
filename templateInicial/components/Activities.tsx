@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
-import ActivityCard from "./ActivityCard";
+import { View, Text, Image, StyleSheet } from "react-native";
 
-// Componente recebe uma LISTA via props
+// Componente recebe lista via props
 export default function Activities(props) {
   return (
 
@@ -10,21 +9,50 @@ export default function Activities(props) {
 
       {/* 🔹 Título da seção */}
       <Text style={styles.title}>
-        Recent Activities
+        Upcoming Bookings ({props.lista.length})
       </Text>
 
-      {/* 🔹 Lista de cards */}
-      <View style={styles.list}>
+      {/* 🔹 Percorre a lista */}
+      {props.lista.map((item, index) => (
+        
+        // 🔹 Card da lista
+        <View key={index} style={styles.card}>
 
-        {props.lista.map((item, index) => (
-          <ActivityCard
-            key={index}
-            icon={item.icon}
-            titulo={item.titulo}
+          {/* 🔹 IMAGEM LATERAL */}
+          <Image
+            source={item.icon} // imagem vinda por props
+            style={styles.image}
           />
-        ))}
 
-      </View>
+          {/* 🔹 BLOCO DE INFORMAÇÕES */}
+          <View style={styles.info}>
+
+            {/* 🔹 DATA/HORA */}
+            <Text style={styles.time}>
+              {item.hora}
+            </Text>
+
+            {/* 🔹 ROTA */}
+            <Text style={styles.route}>
+              {item.rota}
+            </Text>
+
+            {/* 🔹 DETALHE */}
+            <Text style={styles.detail}>
+              {item.titulo}
+            </Text>
+
+          </View>
+
+          {/* 🔹 AVALIAÇÃO (lado direito) */}
+          <View style={styles.rating}>
+            <Text style={styles.ratingText}>
+              ⭐ {item.nota}
+            </Text>
+          </View>
+
+        </View>
+      ))}
 
     </View>
   );
@@ -33,24 +61,67 @@ export default function Activities(props) {
 // 🔹 Estilos
 const styles = StyleSheet.create({
 
-  // Container geral da seção
   container: {
-    marginHorizontal: 15, // alinha com o resto da tela
-    marginTop: 10
+    marginHorizontal: 15,
+    marginTop: 15
   },
 
-  // Título da seção
   title: {
-    color: "#fff", // texto branco (tema dark)
+    color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 10
   },
 
-  // Área onde ficam os cards
-  list: {
-    flexDirection: "row", // coloca lado a lado
-    justifyContent: "space-between" // distribui bem
+  card: {
+    flexDirection: "row", // 🔥 horizontal
+
+    backgroundColor: "rgba(0,0,0,0.6)",
+
+    borderRadius: 15,
+    padding: 10,
+    marginBottom: 10,
+
+    alignItems: "center"
+  },
+
+  image: {
+    width: 60,
+    height: 60,
+    borderRadius: 10,
+    marginRight: 10
+  },
+
+  info: {
+    flex: 1
+  },
+
+  time: {
+    color: "#FF6F00",
+    fontSize: 12,
+    fontWeight: "bold"
+  },
+
+  route: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "bold"
+  },
+
+  detail: {
+    color: "#ccc",
+    fontSize: 12
+  },
+
+  rating: {
+    backgroundColor: "#FF6F00",
+    padding: 5,
+    borderRadius: 10
+  },
+
+  ratingText: {
+    color: "#fff",
+    fontSize: 12
   }
 
 });

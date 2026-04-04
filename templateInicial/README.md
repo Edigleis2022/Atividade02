@@ -1,50 +1,22 @@
-# Welcome to your Expo app 👋
+## ▶️ Como executar o projeto
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+1. Instale as dependências:
 
 ```bash
-npm run reset-project
-```
+npm install
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+📱 Projeto React Native - Interface Tema Free Fire
+🎯 Descrição do Projeto
 
-## Learn more
+Este projeto foi desenvolvido utilizando React Native com Expo, com o objetivo de recriar uma interface mobile baseada em um layout proposto em sala de aula.
 
-To learn more about developing your project with Expo, look at the following resources:
+O tema escolhido foi o jogo Free Fire, aplicando um visual moderno com cores escuras, elementos visuais inspirados em jogos e foco na experiência do usuário.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+🎮 Tema Escolhido
 
-## Join the community
+O tema do projeto é baseado no jogo Free Fire, trazendo elementos como:
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Cores escuras (tema dark)
+Ícones de armas, missões e personagens
+Fundo com imagem temática do jogo
+Interface semelhante a aplicativos de jogos

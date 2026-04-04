@@ -14,30 +14,37 @@ export default function Home() {
   // 🔹 ARRAY do menu (cards de opções)
   // Cada objeto representa UM card
   const menu = [
-    { icon: icons.gun, tituulo: "Waepons" },
-    { icon: icons.target, tituulo: "Mission" },
-    { icon: icons.car, tituulo: "Vehicles" },
-    { icon: icons.player, tituulo: "Character" },
+    { icon: icons.gun, titulo: "Waepons" },
+    { icon: icons.target, titulo: "Mission" },
+    { icon: icons.car, titulo: "Vehicles" },
+    { icon: icons.player, titulo: "Character" },
   ];
 
   // 🔹 ARRAY da lista de atividades (parte de baixo)
   const lista = [
   {
     icon: require("../assets/activities/FF_Clu_character.png"),
-    titulo: "Battle Royale Match",
+    titulo: "Lorry, Plate #: SHD90893",
+    hora: "TODAY, 2:00 PM - 4:00PM",
+    rota: "Orchard → Bishan",
+    nota: "5.0"
   },
   {
     icon: require("../assets/activities/FF_Iris_character.png"),
-    titulo: "Squad Mission",
-  },
+    titulo: "Motorcycle, Plate #: SHD90893",
+    hora: "3 JULY, 6:00 PM - 9:00PM",
+    rota: "Paya Lebar → Yishun",
+    nota: "4.5"
+  }
 ];
 
   // 🔹 RETURN = o que aparece na tela
   return (
     // View principal (container da tela inteira)
     <ImageBackground
-      source={require("../assets/background/background.png")}
+      source={require("../assets/background/free_fire_wallpaper_hd.jpg")}
       style={styles.container}
+      resizeMode="cover"
     >
       <View style={styles.overlay}>
 
@@ -79,10 +86,12 @@ const styles = StyleSheet.create({
   // Container principal
   container: {
     flex: 1, // ocupa a tela inteira
+    width: "100%",
+      height: "100%",
   },
 
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.6)", // camada escura para melhor contraste
+    backgroundColor: "rgba(0, 0, 0, 0.3)", // camada escura para melhor contraste
   }
 });
