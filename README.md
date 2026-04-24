@@ -9,10 +9,7 @@ npm install
 
 Iniciar Projeto
 npx expo start
-
-
 ---
-
 
 📱 Projeto React Native - Interface Tema Free Fire
 🎯 Descrição do Projeto
