@@ -10,28 +10,9 @@ npm install
 Iniciar Projeto
 npx expo start
 
----
-
-# 🏁 RESUMO
-
-✔ Aproveitar comandos → SIM  
-✔ Aproveitar texto padrão → NÃO  
-✔ Misturar com seu README → IDEAL  
 
 ---
 
-# 🚀 RESULTADO
-
-👉 Você fica com um README:
-
-✔ profissional  
-✔ personalizado  
-✔ funcional  
-✔ pronto pra entrega  
-
----
-
-Se quiser, posso juntar **seu README + comandos certinho já formatado** 👍
 
 📱 Projeto React Native - Interface Tema Free Fire
 🎯 Descrição do Projeto
